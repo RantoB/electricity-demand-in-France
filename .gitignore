@@ -1,0 +1,15 @@
+# __pycache__
+__pycache__/
+
+#jupyter notebook
+.ipynb_checkpoints/
+
+# Data and models
+*.pkl
+*.24h
+*.csv
+raw-data/
+models/
+
+# Heroku app
+app/
