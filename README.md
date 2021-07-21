@@ -10,6 +10,7 @@ The purpose of this project is to improve the following skills :
 - App prototype deployment on Heroku
 
 To download the app only :
+
 $ heroku git:clone -a electricityinfrance
 
 The project is can be visited there : [French electricity production overview and prediction](https://electricityinfrance.herokuapp.com/)
