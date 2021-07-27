@@ -11,7 +11,7 @@ def loading_data(url: str):
     response = requests.get(url)
 
     if response.status_code == 200:
-        print(f'Data from {url} successfully loaded')
+        print(f'\nData from {url} successfully loaded\n')
 
     return pd.DataFrame(response.json())
 
@@ -36,7 +36,7 @@ def preprocessing(df: pd.core.frame.DataFrame):
     df = df.drop(col_to_drop, axis=1)
     df = df.dropna()
 
-    # Reorder the columns to have the new datetime columns in first
+    # Reorder the columns to have the new datetime columns first
     col_reindex =  np.array(df.columns)
     col_reindex = np.concatenate((col_reindex[-5:], col_reindex[:-5]), axis=0)
 
@@ -68,7 +68,7 @@ def filter_data(df: pd.core.frame.DataFrame):
     # Add an hourly frequency to the index and forward filling if some hours are missing
     df_filtered = df_filtered.asfreq('H', method='ffill')
 
-    # Remove all columns except time and conumption columns
+    # Remove all columns except time and consumption columns
     df_filtered = df_filtered[['date_heure', 'day', 'consommation', 'week_day', 'week_number']]
 
     # Remove values for the current day
